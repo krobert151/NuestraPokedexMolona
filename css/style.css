@@ -1,15 +1,20 @@
 @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
-
+@font-face {
+    font-family:'maven';
+    src: url('/fonts/mavenpro/MavenPro-Black.ttf');
+}
 * {
-    font-family: 'Pokemon Solid', sans-serif;
+    font-family: 'maven', sans-serif;
 }
 
 body {
     background-color: #E6E6FA;
 }
 
-h1 {
+.title{
     color: #ffcb05;
+    font-family: 'Pokemon Solid', sans-serif;
+
 }
 
 .card {
@@ -146,4 +151,29 @@ h1 {
     background-color: #ffb7fa;
     border-top-color: lighten(#ffb7fa, 15%);
     border-bottom-color: darken(#ffb7fa, 15%);
+}
+
+.modal-content{
+    border-radius: 15pt;
+    background: rgb(168,144,240);
+    background: linear-gradient(338deg, rgba(168,144,240,1) 0%, rgba(156,83,31,1) 100%);
+    padding: 2px;
+}
+.modal-body{
+    border-radius: 15pt;
+    background-color: rgba(255, 255, 255, 0.611);
+}
+.list-group-item {
+    border: none ;
+    background-color: rgb(255, 255, 255);
+}
+table>thead>tr>th{
+    border-top-right-radius: 15pt;
+    border-top-left-radius: 15pt;
+}
+table>tbody>tr:last-child>td:nth-child(1){
+    border-bottom-left-radius: 15pt;
+}
+table>tbody>tr:last-child>td:nth-child(2){
+    border-bottom-right-radius: 15pt;
 }
