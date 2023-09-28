@@ -8,10 +8,9 @@ $(document).ready(() => {
         var i = 1;
         pokeLis.forEach(poke => {
             var modalId = `modal-${i}`; // Genera un ID único para cada modal
-            var template = `
-            <div class="col-12 col-md-3 col-xl-2 col-xxl-1 card btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" personajeid="${i}">
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png" class="card-img" alt="...">
-                </div>`;
+            var template = `<div class="col-12 col-md-3 col-xl-2 col-xxl-1 card btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" personajeid="${i}">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png" class="card-img" alt="...">
+                            </div>`;
                 $('#pokeList').append(template);
                 i++;
             });
@@ -22,7 +21,6 @@ $(document).ready(() => {
             if($('pkm-type'))
             $('.pkm-type').removeClass();
         })
-        });
         $(document).on('click', '.card', function () {
             var personajeid = $(this).attr('personajeid');
             $.ajax({
@@ -61,4 +59,5 @@ $(document).ready(() => {
                 $('#special-defense').text(poke.stats[4].base_stat);
                 $('#speed').text(poke.stats[5].base_stat);
             });
-});
+        });
+    });
