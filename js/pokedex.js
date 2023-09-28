@@ -19,6 +19,7 @@ $(document).ready(() => {
             i++;
         });
     });
+
     $(document).on('click', '.card', function () {
         var personajeid = $(this).attr('personajeid');
         $.ajax({
@@ -26,12 +27,19 @@ $(document).ready(() => {
             type: 'GET'
         }).done(function (poke) {
             $('.pokesprite').attr('src', poke.sprites.front_default);
-            $('#name').text(poke.species.name);
+            $('#name').text(poke.species.name.toUpperCase());
             $('#height').text(poke.height);
             $('#weight').text(poke.weight);
             $('#type1').text(poke.types[0].type.name);
+
+            $('#type1').parent().addClass('pkm-type');
+            $('#type1').parent().addClass(poke.types[0].type.name);
+
             if (poke.types[1]) {
-                $('#type2').text('/'.concat(poke.types[1].type.name));
+                $('#type2').text((poke.types[1].type.name));
+                $('#type2').parent().addClass('pkm-type');
+                $('#type2').parent().addClass(poke.types[1].type.name);
+
             } else {
                 $('#type2').text('');
 
@@ -45,4 +53,8 @@ $(document).ready(() => {
             $('#hp').text(poke.stats[6].base_stat);
         });
     });
+    $(document).on('click', '.btn-close', function () {
+        $('#type1').parent().removeClass();
+        $('#type2').parent().removeClass();
+    })
 });
