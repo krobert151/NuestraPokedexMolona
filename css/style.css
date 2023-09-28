@@ -1,0 +1,17 @@
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+*{
+    font-family: 'Pokemon Solid', sans-serif;
+}
+body{
+    background-color: #E6E6FA;
+}
+h1{
+    color: #ffcb05;
+}
+
+.card{
+    background: rgb(194,194,237);
+    background: radial-gradient(circle, rgba(194,194,237,1) 0%, rgba(230,230,250,1) 100%);
+    border: none;
+}
+
