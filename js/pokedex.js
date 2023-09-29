@@ -23,6 +23,20 @@ $(document).ready(() => {
     })
     $(document).on('click', '.card', function () {
         var personajeid = $(this).attr('personajeid');
+        var evolution_chain = "pan";
+        $.ajax({
+            url:'https://pokeapi.co/api/v2/pokemon-species/'+personajeid,
+            type: 'GET'
+        }).done(function(poke){
+            evolution_chain = poke.evolution_chain.url;
+            alert(evolution_chain);
+            $.ajax({
+                url: evolution_chain,
+                type: 'GET'
+            }).done(function(evo){
+                alert(evolution_chain)
+            })
+        });
         $.ajax({
             url: 'https://pokeapi.co/api/v2/pokemon/' + personajeid,
             type: 'GET'
