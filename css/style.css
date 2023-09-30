@@ -225,3 +225,19 @@ header img {
     border-radius: var(--bs-border-radius);
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
+
+/*Evoluciones*/
+.levelup{
+    display: block;
+    font-size: 10px;
+}
+.levelup-trigger-name{
+    font-size: 8px;
+}
+.noneevo{
+    display: none;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+}
+
