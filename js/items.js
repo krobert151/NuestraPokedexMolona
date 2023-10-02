@@ -1,29 +1,19 @@
-$(document).ready(function () {
+/*$(document).ready(function () {
     $.ajax({
-        url: 'https://pokeapi.co/api/v2/item/',
+        url: 'https://pokeapi.co/api/v2/item-pocket/',
         type: 'GET'
     }).done(function (resp) {
         var listadoPomemon = resp.results;
+        var id=1;
+        var idPersonaje = 1;
         listadoPomemon.forEach(function (characters) {
-            $.ajax({
-                url: characters.url,
-                type: 'GET'
-            }).done(function(itemData){
-                var imageUrl = itemData.sprites.default;
-                var template = ` <div class="card bg-black text-white border border-warning-subtle  " id="pinchar" style="width: 19rem;">
-                <div class="img">
-                    <img src="${imageUrl}" class="card-img-top rounded-4" alt="..."  >
-                </div>
-                <div class=" card card-body bg-black text-white card d-flex align-items-center justify-content-center" >
-                    <p class="card-text text-center "> <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary " data-bs-toggle="modal" id="btn" data-bs-target="#exampleModal"  >
-                        ${itemData.name}
-                          </button></p>
-                </div>
-              </div>
-            `;
+           
+                var template = `<div class="col-12 col-md-3 col-xl-2 col-xxl-1 card btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" personajeid="${idPersonaje}">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" class="card-img" alt="...">
+                </div>`
+            ;
             $('#pokeList').append(template);
             });
         });
     });
-});
+*/
