@@ -28,7 +28,6 @@ body {
 
 .pkm-type {
     font-size: 15px;
-
     font-family: 'Trebuchet MS';
     font-weight: bold;
     width: 5em;
@@ -227,17 +226,26 @@ header img {
 }
 
 /*Evoluciones*/
-.levelup{
+.levelup {
     display: block;
     font-size: 10px;
 }
-.levelup-trigger-name{
+
+.levelup-trigger-name {
     font-size: 8px;
 }
-.noneevo{
+
+.noneevo {
     display: none;
     overflow: hidden;
     height: 0;
     width: 0;
 }
 
+/*Random*/
+
+.fondoredondo {
+
+    background: rgb(194, 194, 237);
+    background: radial-gradient(circle, rgba(194, 194, 237, 1) 0%, rgba(230, 230, 250, 1) 100%);
+}
