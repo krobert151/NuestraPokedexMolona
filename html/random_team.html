@@ -38,37 +38,298 @@
         </div>
     </header>
     <main>
-        <div id="#pokeballs_team" class="row text-center mt-5 mx-5 px-5">
-            <div class="row col-12 me-5">
-                <div class="col fondoredondo ">
+        <div id="#pokeballs_team" class=" text-center p-5">
+            <div class="row ms-5 d-flex justify-content-between mt-5">
+                <div class="col-2 p-5"></div>
+                <div class="col-2 p-5 card pokeball pokeballbg" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    pokeball="1">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
-                        alt="Pokeball" width="40%">
+                        class="card-img" alt="pokeball">
                 </div>
-                <div class="col fondoredondo">
+                <div class="col-2 p-5 card pokeball pokeballbg" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    pokeball="2">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
-                        alt="Pokeball" width="40%">
+                        class="card-img" alt="pokeball">
                 </div>
-                <div class="col fondoredondo">
+                <div class="col-2 p-5 card pokeball pokeballbg" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    pokeball="3">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
-                        alt="Pokeball" width="40%">
+                        class="card-img" alt="pokeball">
                 </div>
+                <div class="col-2 p-5"></div>
+                <div class="col-1 p-5"></div>
             </div>
-            <div class="row col-12 ms-5 mt-5">
-                <div class="col fondoredondo">
+            <div class="row me-5 d-flex justify-content-between mt-3">
+                <div class="col-1 p-5"></div>
+                <div class="col-2 p-5"></div>
+                <div class="col-2 p-5 card pokeball pokeballbg" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    pokeball="4">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
-                        alt="Pokeball" width="40%">
+                        class="card-img" alt="pokeball">
                 </div>
-                <div class="col fondoredondo">
+                <div class="col-2 p-5 card pokeball pokeballbg" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    pokeball="5">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
-                        alt="Pokeball" width="40%">
+                        class="card-img" alt="pokeball">
                 </div>
-                <div class="col fondoredondo">
+                <div class="col-2 p-5 card pokeball pokeballbg" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    pokeball="6">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
-                        alt="Pokeball" width="40%">
+                        class="card-img" alt="pokeball">
+                </div>
+                <div class="col-2 p-5"></div>
+            </div>
+        </div>
+        <div class="modal fade  " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog mo-di-random">
+                <div class="modal-content mo-co-random p-2">
+                    <div class="modal-body mo-bo-random">
+                        <h1 class=" text-center text-black title-random-pokemon mvnFont" id="name">CHARIZARD</h1>
+                        <div class="d-flex justify-content-center flex-column">
+                            <div class="w-100 d-flex justify-content-center">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
+                                    alt="" width="50%">
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <div class="row justify-content-center px-5">
+                                    <div class="pkm-type pkm-type-random mx-4 fire"><span id="type1">Fuego</span></div>
+                                    <div class="pkm-type pkm-type-random mx-4 flying "><span id="type2">Volador</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-5">
+                            <div class="row d-flex justify-content-around">
+                                <div class="bg-white d-flex position-relative col-5 attack">
+                                    <div class="pkm-type-random fire attack-type">
+                                        <span id="type1" class="gbaFont">FUEGO</span>
+                                    </div>
+                                    <div class="attack-name">
+                                        <span class="gbaFont">MEGA-PUNCH</span>
+                                    </div>
+                                    <div class="pp">
+                                        <div class="d-flex">
+                                            <span class="gbaFont">PP</span>
+                                            <span class="gbaFont">20/20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-white d-flex position-relative col-5 attack text-center">
+                                    <div class="pkm-type-random fire attack-type">
+                                        <span id="type1" class="gbaFont">FUEGO</span>
+                                    </div>
+                                    <div class="attack-name">
+                                        <span class="gbaFont">MEGA-PUNCH</span>
+                                    </div>
+                                    <div class="pp">
+                                        <div class="d-flex">
+                                            <span class="gbaFont">PP</span>
+                                            <span class="gbaFont">20/20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-around mt-5">
+                                <div class="bg-white d-flex position-relative col-5 attack">
+                                    <div class="pkm-type-random fire attack-type">
+                                        <span id="type1" class="gbaFont">FUEGO</span>
+                                    </div>
+                                    <div class="attack-name">
+                                        <span class="gbaFont">MEGA-PUNCH</span>
+                                    </div>
+                                    <div class="pp">
+                                        <div class="d-flex">
+                                            <span class="gbaFont">PP</span>
+                                            <span class="gbaFont">20/20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-white d-flex position-relative col-5 attack">
+                                    <div class="pkm-type-random fire attack-type">
+                                        <span id="type1" class="gbaFont">FUEGO</span>
+                                    </div>
+                                    <div class="attack-name">
+                                        <span class="gbaFont">MEGA-PUNCH</span>
+                                    </div>
+                                    <div class="pp">
+                                        <div class="d-flex">
+                                            <span class="gbaFont">PP</span>
+                                            <span class="gbaFont">20/20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
+        <div id="pokemonsObtenidos" class="row d-flex justify-content-center mt-5">
+            <div class="pokobt col-11 my-5 fw-bolder" id="pokobt1">
+                <div class="m-1 my-3 row">
+                    <div class="col-3">
+                        <div class="d-flex justify-content-center imagenesPokob">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
+                                alt="" width="80%">
+                            <div class="objetoObt">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/razz-berry.png"
+                                    alt="item" height="100%">
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center ">
+                            <div class="col-10 row">
+                                <div class="col-10">
+                                    <div class="hp row d-flex justify-content-between">
+                                        <span class="col-2 p-0 text-center">
+                                            HP
+                                        </span>
+                                        <div class="col p-0 ">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col p-0 d-flex justify-content-center align-items-center">
+                                    <span class="hpstat ">78/78</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center ">
+                            <div class="col-8 row my-5 stats">
+                                <div class="col-12 row">
+                                    <div class="col-4 text-center mb-3">
+                                        <span>HP:</span>
+                                        <span>78</span>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <span>AT:</span>
+                                        <span>84</span>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <span>DF:</span>
+                                        <span>78</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 row mt-2">
+                                    <div class="col-4 text-center">
+                                        <span>SA:</span>
+                                        <span>109</span>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <span>SD:</span>
+                                        <span>85</span>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <span>SP:</span>
+                                        <span>100</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="row col-12 d-flex justify-content-evenly">
+                                <div class="col-5 attakdetails" >
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            <span>MEGA-PUNCH</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>POTENC.</span>
+                                            <span>80</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>ACC.</span>
+                                            <span>85</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>PHYSICAL</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>PP.</span>
+                                            <span>20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5 attakdetails" >
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            <span>MEGA-PUNCH</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>POTENC.</span>
+                                            <span>80</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>ACC.</span>
+                                            <span>85</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>PHYSICAL</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>PP.</span>
+                                            <span>20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row col-12 d-flex justify-content-evenly">
+                                <div class="col-5 attakdetails" >
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            <span>MEGA-PUNCH</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>POTENC.</span>
+                                            <span>80</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>ACC.</span>
+                                            <span>85</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>PHYSICAL</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>PP.</span>
+                                            <span>20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5 attakdetails" >
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            <span>MEGA-PUNCH</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>POTENC.</span>
+                                            <span>80</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>ACC.</span>
+                                            <span>85</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>PHYSICAL</span>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span>PP.</span>
+                                            <span>20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pokobt col-11 my-5" id="pokobt2"></div>
+            <div class="pokobt col-11 my-5" id="pokobt3"></div>
+            <div class="pokobt col-11 my-5" id="pokobt4"></div>
+            <div class="pokobt col-11 my-5" id="pokobt5"></div>
+            <div class="pokobt col-11 my-5" id="pokobt6"></div>
+        </div>
     </main>
 
 
