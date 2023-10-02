@@ -144,6 +144,17 @@ $(document).ready(() => {
                                 </div>
                                 </div>`;
                                 $('#evo2').append(template);
+                            } else if (evo.chain.evolves_to[i].evolution_details[0].known_move != null) {
+                                evolutionform = `<span class="levelup-trigger-name ">Know move</span>
+                                <span class="levelup ">${evo.chain.evolves_to[i].evolution_details[0].known_move.name}</span>`;
+                                template = `<div class="col d-flex flex-row align-items-center justify-content-centers evo p-0">
+                                <div class="col text-center">`+ evolutionform + `
+                                </div>
+                                <div class="col-9">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke1.id}.png"
+                                </div>
+                                </div>`;
+                                $('#evo2').append(template);
                             }
                         });
                     }
@@ -214,34 +225,45 @@ $(document).ready(() => {
                                         evolutionform = `<span class="levelup ">+${evo.chain.evolves_to[i].evolves_to[j].evolution_details[0].min_level}</span>
                                     <span class="levelup-trigger-name ">${evo.chain.evolves_to[i].evolves_to[j].evolution_details[0].trigger.name}</span>`;
                                         template = `<div class="col d-flex flex-row align-items-center justify-content-centers evo p-0">
-                                <div class="col text-center">`+ evolutionform + `
-                                </div>
-                                <div class="col-9">
-                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke1.id}.png"
-                                </div>
-                                </div>`;
+                                    <div class="col text-center">`+ evolutionform + `
+                                    </div>
+                                    <div class="col-9">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke1.id}.png"
+                                    </div>
+                                    </div>`;
                                         $('#evo3').append(template);
                                     } else if (evo.chain.evolves_to[i].evolves_to[j].evolution_details[0].trigger.name == "trade") {
                                         evolutionform = `
-                                <span class="levelup-trigger-name ">Trade</span>`;
+                                    <span class="levelup-trigger-name ">Trade</span>`;
                                         template = `<div class="col d-flex flex-row align-items-center justify-content-centers evo p-0">
-                                <div class="col text-center">`+ evolutionform + `
-                                </div>
-                                <div class="col-9">
-                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke1.id}.png"
-                                </div>
-                                </div>`;
+                                    <div class="col text-center">`+ evolutionform + `
+                                    </div>
+                                    <div class="col-9">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke1.id}.png"
+                                    </div>
+                                    </div>`;
                                         $('#evo3').append(template);
                                     } else if (evo.chain.evolves_to[i].evolves_to[j].evolution_details[0].min_happiness != null) {
                                         evolutionform = `<span class="levelup ">${evo.chain.evolves_to[i].evolves_to[j].evolution_details[0].min_happiness}</span>
-                                <span class="levelup-trigger-name ">Happiness</span>`;
+                                    <span class="levelup-trigger-name ">Happiness</span>`;
                                         template = `<div class="col d-flex flex-row align-items-center justify-content-centers evo p-0">
-                                <div class="col text-center">`+ evolutionform + `
-                                </div>
-                                <div class="col-9">
-                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke1.id}.png"
-                                </div>
-                                </div>`;
+                                    <div class="col text-center">`+ evolutionform + `
+                                    </div>
+                                    <div class="col-9">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke1.id}.png"
+                                    </div>
+                                    </div>`;
+                                        $('#evo3').append(template);
+                                    } else if (evo.chain.evolves_to[i].evolves_to[j].evolution_details[0].known_move != null) {
+                                        evolutionform = `<span class="levelup-trigger-name ">Know move</span>
+                                        <span class="levelup ">${evo.chain.evolves_to[i].evolves_to[j].evolution_details[0].known_move.name}</span>`;
+                                        template = `<div class="col d-flex flex-row align-items-center justify-content-centers evo p-0">
+                                        <div class="col text-center">`+ evolutionform + `
+                                        </div>
+                                        <div class="col-9">
+                                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${poke1.id}.png"
+                                        </div>
+                                        </div>`;
                                         $('#evo3').append(template);
                                     }
                                 });
