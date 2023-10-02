@@ -156,10 +156,46 @@ body {
 }
 
 .modal-content {
-    border-radius: 15pt;
-    background: rgb(168, 144, 240);
-    background: linear-gradient(338deg, rgba(168, 144, 240, 1) 0%, rgba(156, 83, 31, 1) 100%);
-    padding: 2px;
+    width: 1000px;
+    background-image: url(../img/Group\ 90.png);
+    
+}
+.titulo{
+    
+    border: 3px solid black ;
+    border-right: 3px solid #F0C971 ;
+    
+}
+.tabla{
+    width: 650px;
+    height: 300px;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    background-color: #F0C971;
+    border: 3px solid black ;
+}
+.tabla div{
+    height: 89%;
+    border-radius: 5pt;
+   
+    background-color: #D1B24F;
+    margin-left: 3%;
+    margin-top: 3%;
+    
+    margin-right: 3%;
+}
+.tituloModal .titulo{
+    
+    
+margin-left: 8%;
+margin-top: 3%;
+    background-color: #F0C971;
+}
+.tituloModal h2{
+    text-align: center;
+}
+.info{
+    background-color: #0079C1;
 }
 
 .modal-body {
@@ -172,17 +208,9 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-table>thead>tr>th {
-    border-top-right-radius: 15pt;
-    border-top-left-radius: 15pt;
-}
-
-table>tbody>tr:last-child>td:nth-child(1) {
-    border-bottom-left-radius: 15pt;
-}
-
-table>tbody>tr:last-child>td:nth-child(2) {
-    border-bottom-right-radius: 15pt;
+.table{
+    background-color: #F0C971;
+    width: 200px;
 }
 
 header {

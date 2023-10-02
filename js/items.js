@@ -17,3 +17,54 @@
         });
     });
 */
+$(document).ready(function(){
+   
+    $(document).on('click','#poke',function(){
+        
+        
+        $.ajax({
+            url: 'https://pokeapi.co/api/v2/item/poke-ball',
+            type:'GET'
+        }).done(function(resp){
+            $('#pokedex').html(resp.name);
+            
+        })
+    })
+    $(document).on('click','#carta',function(){
+        
+        
+        $.ajax({
+            url: 'https://pokeapi.co/api/v2/item/grass-mail',
+            type:'GET'
+        }).done(function(resp){
+            $('#pokedex').html(resp.name);
+            
+        })
+    })
+    $(document).on('click','#disco',function(){
+        
+        
+        $.ajax({
+            url: 'https://pokeapi.co/api/v2/item/tm-case',
+            type:'GET'
+        }).done(function(resp){
+            $('#pokedex').html(resp.name);
+            
+        })
+    })
+    $(document).on('click','#pociones',function(){
+        
+        
+        $.ajax({
+            url: 'https://pokeapi.co/api/v2/item/hp-up',
+            type:'GET'
+        }).done(function(resp){
+            $('#pokedex').html(resp.name);
+            
+        })
+    })
+    
+    
+    
+   
+})
