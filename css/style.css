@@ -340,11 +340,7 @@ header img {
     height: 4em;
 }
 
-#pokobt1 {
-    border-radius: 20pt;
-    background: rgb(156, 83, 31);
-    background: linear-gradient(150deg, rgba(156, 83, 31, 1) 0%, rgba(168, 144, 240, 1) 100%);
-}
+
 
 .pokobt>div {
     border-radius: 20pt;
