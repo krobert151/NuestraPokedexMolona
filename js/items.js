@@ -18,53 +18,49 @@
     });
 */
 $(document).ready(function(){
-   
+
     $(document).on('click','#poke',function(){
-        
-        
+
         $.ajax({
-            url: 'https://pokeapi.co/api/v2/item/poke-ball',
+            url: 'https://pokeapi.co/api/v2/item-pocket/1/',
             type:'GET'
         }).done(function(resp){
-            $('#pokedex').html(resp.name);
+            var arrcat = resp.categories;
+                for (let i = 0; i < arrcat.length; i++) {
+
+                    $.ajax({
+                        url: arrcat[i].url,
+                        type: 'GET'
+                    }).done(function(resp){
+                        var guardarItem = resp.items;
+                        for (let j = 0; j < guardarItem.length; j++) {
+                          console.log(guardarItem[j]);
+                                        
+
+                          var template = `<tr>
+                          <td >
+                          <span>Nombre</span>
+        <span >${guardarItem[j].name}</span>
+                          </td>
+
+
+                      </tr>`;
+                          $('#nombre').append(template);
+                            
+                        }
+                    })
+
+
+                }
+
+            })
             
-        })
-    })
-    $(document).on('click','#carta',function(){
-        
-        
-        $.ajax({
-            url: 'https://pokeapi.co/api/v2/item/grass-mail',
-            type:'GET'
-        }).done(function(resp){
-            $('#pokedex').html(resp.name);
-            
-        })
-    })
-    $(document).on('click','#disco',function(){
-        
-        
-        $.ajax({
-            url: 'https://pokeapi.co/api/v2/item/tm-case',
-            type:'GET'
-        }).done(function(resp){
-            $('#pokedex').html(resp.name);
-            
-        })
-    })
-    $(document).on('click','#pociones',function(){
-        
-        
-        $.ajax({
-            url: 'https://pokeapi.co/api/v2/item/hp-up',
-            type:'GET'
-        }).done(function(resp){
-            $('#pokedex').html(resp.name);
-            
+           
+                       
         })
     })
     
+
     
     
    
-})
