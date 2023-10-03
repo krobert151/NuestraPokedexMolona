@@ -85,11 +85,10 @@
             <div class="modal-dialog mo-di-random">
                 <div class="modal-content mo-co-random p-2">
                     <div class="modal-body mo-bo-random">
-                        <h1 class=" text-center text-black title-random-pokemon mvnFont" id="name">CHARIZARD</h1>
+                        <h1 class=" text-center text-black title-random-pokemon mvnFont" id="name"></h1>
                         <div class="d-flex justify-content-center flex-column">
                             <div class="w-100 d-flex justify-content-center">
-                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
-                                    alt="" width="50%">
+                                <img src="" alt="" id="pkmnFoto" width="50%">
                             </div>
                             <div class="d-flex justify-content-center">
                                 <div class="row justify-content-center px-5">
@@ -101,7 +100,7 @@
                         </div>
                         <div class="m-5">
                             <div class="row d-flex justify-content-around">
-                                <div class="bg-white d-flex position-relative col-5 attack">
+                                <div class="bg-white d-flex position-relative col-5 attack" id="att0">
                                     <div class="pkm-type-random fire attack-type">
                                         <span id="type1" class="gbaFont">FUEGO</span>
                                     </div>
@@ -115,7 +114,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="bg-white d-flex position-relative col-5 attack text-center">
+                                <div class="bg-white d-flex position-relative col-5 attack" id="att1">
                                     <div class="pkm-type-random fire attack-type">
                                         <span id="type1" class="gbaFont">FUEGO</span>
                                     </div>
@@ -131,7 +130,7 @@
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-around mt-5">
-                                <div class="bg-white d-flex position-relative col-5 attack">
+                                <div class="bg-white d-flex position-relative col-5 attack" id="att2">
                                     <div class="pkm-type-random fire attack-type">
                                         <span id="type1" class="gbaFont">FUEGO</span>
                                     </div>
@@ -145,7 +144,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="bg-white d-flex position-relative col-5 attack">
+                                <div class="bg-white d-flex position-relative col-5 attack" id="att3">
                                     <div class="pkm-type-random fire attack-type">
                                         <span id="type1" class="gbaFont">FUEGO</span>
                                     </div>
@@ -228,98 +227,113 @@
                     </div>
                     <div class="col">
                         <div class="row">
-                            <div class="row col-12 d-flex justify-content-evenly">
-                                <div class="col-5 attakdetails" >
+                            <div class="row col-12 d-flex justify-content-evenly mt-5">
+                                <div class="col-5 attakdetails fire py-1 px-3">
                                     <div class="row">
-                                        <div class="col-12 text-center">
+                                        <div class="col-12 text-center mt-2 mb-3">
                                             <span>MEGA-PUNCH</span>
                                         </div>
-                                        <div class="col-6 text-center">
+                                        <div class="col-6 text-center mb-3">
                                             <span>POTENC.</span>
                                             <span>80</span>
                                         </div>
-                                        <div class="col-6 text-center">
+                                        <div class="col-6 text-center mb-3">
                                             <span>ACC.</span>
                                             <span>85</span>
                                         </div>
-                                        <div class="col-6 text-center">
+                                        <div class="col-6 text-center mb-3">
                                             <span>PHYSICAL</span>
                                         </div>
-                                        <div class="col-6 text-center">
+                                        <div class="col-6 text-center mb-3">
                                             <span>PP.</span>
                                             <span>20</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-5 attakdetails" >
+                                <div class="col-5 attakdetails fire py-1 px-3">
                                     <div class="row">
-                                        <div class="col-12 text-center">
+                                        <div class="col-12 text-center mt-2 mb-3">
                                             <span>MEGA-PUNCH</span>
                                         </div>
-                                        <div class="col-6 text-center">
+                                        <div class="col-6 text-center mb-3">
                                             <span>POTENC.</span>
                                             <span>80</span>
                                         </div>
-                                        <div class="col-6 text-center">
+                                        <div class="col-6 text-center mb-3">
                                             <span>ACC.</span>
                                             <span>85</span>
                                         </div>
-                                        <div class="col-6 text-center">
+                                        <div class="col-6 text-center mb-3">
                                             <span>PHYSICAL</span>
                                         </div>
-                                        <div class="col-6 text-center">
-                                            <span>PP.</span>
-                                            <span>20</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row col-12 d-flex justify-content-evenly">
-                                <div class="col-5 attakdetails" >
-                                    <div class="row">
-                                        <div class="col-12 text-center">
-                                            <span>MEGA-PUNCH</span>
-                                        </div>
-                                        <div class="col-6 text-center">
-                                            <span>POTENC.</span>
-                                            <span>80</span>
-                                        </div>
-                                        <div class="col-6 text-center">
-                                            <span>ACC.</span>
-                                            <span>85</span>
-                                        </div>
-                                        <div class="col-6 text-center">
-                                            <span>PHYSICAL</span>
-                                        </div>
-                                        <div class="col-6 text-center">
-                                            <span>PP.</span>
-                                            <span>20</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-5 attakdetails" >
-                                    <div class="row">
-                                        <div class="col-12 text-center">
-                                            <span>MEGA-PUNCH</span>
-                                        </div>
-                                        <div class="col-6 text-center">
-                                            <span>POTENC.</span>
-                                            <span>80</span>
-                                        </div>
-                                        <div class="col-6 text-center">
-                                            <span>ACC.</span>
-                                            <span>85</span>
-                                        </div>
-                                        <div class="col-6 text-center">
-                                            <span>PHYSICAL</span>
-                                        </div>
-                                        <div class="col-6 text-center">
+                                        <div class="col-6 text-center mb-3">
                                             <span>PP.</span>
                                             <span>20</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="row col-12 d-flex justify-content-evenly mt-5">
+                                <div class="col-5 attakdetails fire py-1 px-3">
+                                    <div class="row">
+                                        <div class="col-12 text-center mt-2 mb-3">
+                                            <span>MEGA-PUNCH</span>
+                                        </div>
+                                        <div class="col-6 text-center mb-3">
+                                            <span>POTENC.</span>
+                                            <span>80</span>
+                                        </div>
+                                        <div class="col-6 text-center mb-3">
+                                            <span>ACC.</span>
+                                            <span>85</span>
+                                        </div>
+                                        <div class="col-6 text-center mb-3">
+                                            <span>PHYSICAL</span>
+                                        </div>
+                                        <div class="col-6 text-center mb-3">
+                                            <span>PP.</span>
+                                            <span>20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5 attakdetails fire py-1 px-3">
+                                    <div class="row">
+                                        <div class="col-12 text-center mt-2 mb-3">
+                                            <span>MEGA-PUNCH</span>
+                                        </div>
+                                        <div class="col-6 text-center mb-3">
+                                            <span>POTENC.</span>
+                                            <span>80</span>
+                                        </div>
+                                        <div class="col-6 text-center mb-3">
+                                            <span>ACC.</span>
+                                            <span>85</span>
+                                        </div>
+                                        <div class="col-6 text-center mb-3">
+                                            <span>PHYSICAL</span>
+                                        </div>
+                                        <div class="col-6 text-center mb-3">
+                                            <span>PP.</span>
+                                            <span>20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-evenly mt-5 pt-3">
+                            <div class="col-5 text-center">
+                                <span>
+                                    Ability:
+                                </span>
+                                <span>Blaze</span>
+                            </div>
+                            <div class="col-5 text-center">
+                                <span>
+                                    Item:
+                                </span>
+                                <span>razz-berry</span>
+                            </div>
+
                         </div>
                     </div>
                 </div>
