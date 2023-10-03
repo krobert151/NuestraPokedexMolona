@@ -166,6 +166,19 @@ body {
     border-right: 3px solid #F0C971 ;
     
 }
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    width: 1000px;
+    background-image: url(../img/Group\ 90.png);
+    margin: auto;
+}
+
+
 .tabla{
     width: 650px;
     height: 300px;
@@ -222,6 +235,11 @@ margin-top: 3%;
     background-color: #F0C971;
     width: 200px;
 }
+table{
+    width: 100%;
+}
+
+
 
 header {
     display: flex;
