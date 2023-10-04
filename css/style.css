@@ -5,9 +5,12 @@
     src: url('/fonts/mavenpro/MavenPro-Black.ttf');
 }
 
+
 * {
     font-family: 'maven', sans-serif;
 }
+
+
 
 body {
     background-color: #E6E6FA;
@@ -20,16 +23,12 @@ body {
 }
 
 .card {
-    background: rgb(194, 194, 237);
-    background: radial-gradient(circle, rgba(194, 194, 237, 1) 0%, rgba(230, 230, 250, 1) 100%);
     border: none;
 }
 
 
 .pkm-type {
     font-size: 15px;
-
-    font-family: 'Trebuchet MS';
     font-weight: bold;
     width: 5em;
     text-align: center;
@@ -282,4 +281,177 @@ header img {
     border: var(--bs-border-width) solid var(--bs-border-color);
     border-radius: var(--bs-border-radius);
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+/*Evoluciones*/
+.levelup {
+    display: block;
+    font-size: 10px;
+}
+
+.levelup-trigger-name {
+    font-size: 8px;
+}
+
+.noneevo {
+    display: none;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+}
+
+/*Random*/
+
+.bglilaPkdex {
+    background: rgb(194, 194, 237);
+    background: radial-gradient(circle, rgba(194, 194, 237, 1) 0%, rgba(230, 230, 250, 0.438) 100%);
+}
+
+.pokeballbg {
+    background: rgb(194, 194, 237);
+    background: radial-gradient(circle, rgba(194, 194, 237, 0.651) 0%, rgba(230, 230, 250, 0.438) 100%);
+}
+
+.pokeball {
+    border-radius: 50%;
+}
+
+.mo-di-random {
+    max-width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.mo-co-random {
+    border-radius: 40pt;
+}
+
+.mo-bo-random {
+    border-radius: 40pt;
+}
+
+.title-random-pokemon {
+    margin-bottom: 0;
+    font-size: 400%;
+}
+
+.pkm-type-random {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    width: 6em;
+    text-align: center;
+    display: inline-block;
+    border: .1em solid transparent;
+    padding: .1em .2em .2em;
+    margin: .1em .015em;
+    border-radius: .4em;
+}
+
+.attack-type {
+    padding-top: 0;
+    padding-bottom: 0;
+    position: absolute;
+    font-size: 20px;
+    left: -15px;
+    top: -10px;
+}
+
+.attack-type>span {
+    margin: 0px;
+    font-size: 100%;
+}
+
+.attack-name {
+    position: absolute;
+    left: 6em;
+    margin-left: 15px;
+    display: flex;
+    align-items: start;
+}
+
+.attack-name>span {
+    font-size: 20px;
+}
+
+.pp {
+    position: absolute;
+    bottom: -1px;
+    right: 3px
+}
+
+.pp>div>span:first-child {
+    font-size: 15px;
+    display: flex;
+    align-items: end;
+}
+
+.pp>div>span:last-child {
+    font-size: 20px;
+    display: flex;
+    align-items: end;
+}
+
+.attack {
+    border-radius: 10pt;
+    background-color: white;
+    height: 4em;
+}
+
+
+
+.pokobt>div {
+    border-radius: 20pt;
+    background-color: hsla(0, 0%, 100%, 0.70);
+}
+
+.imagenesPokob {
+    position: relative;
+}
+
+.objetoObt {
+    height: 80px;
+    position: absolute;
+    bottom: 25%;
+    right: 5%;
+}
+
+.hp {
+    background-color: rgba(82, 106, 78, 1);
+    border-radius: 35pt;
+}
+
+.hp>span {
+    font-weight: bold;
+    background: rgb(218, 210, 141);
+    background: linear-gradient(0deg, rgba(218, 210, 141, 1) 0%, rgba(226, 185, 70, 1) 49%, rgba(218, 210, 141, 1) 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: 25px;
+}
+
+.hpstat {
+    font-size: 20px;
+}
+
+.hp>div {
+    margin: 2px;
+    border: white 2px solid;
+    background: rgb(148, 203, 163);
+    background: linear-gradient(0deg, rgba(148, 203, 163, 1) 0%, rgba(125, 227, 172, 1) 49%, rgba(141, 246, 193, 1) 100%);
+    border-radius: 20pt;
+}
+
+.stats {
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+.attakdetails>div {
+    border-radius: 15pt;
+    background-color: rgba(255, 255, 255, 0.60);
+}
+
+.attakdetails {
+    border-radius: 15pt;
 }
