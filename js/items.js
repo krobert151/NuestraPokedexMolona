@@ -18,83 +18,84 @@
     });
 */
 
-$(document).ready(function(){
+$(document).ready(function () {
 
-    $(document).on('click','#poke',function(){
+    $(document).on('click', '#poke', function () {
         $('#nombre').empty();
         $.ajax({
             url: 'https://pokeapi.co/api/v2/item-pocket/1/',
-            type:'GET'
-        }).done(function(resp){
+            type: 'GET'
+        }).done(function (resp) {
             var arrcat = resp.categories;
-                for (let i = 0; i < arrcat.length; i++) {
+            for (let i = 0; i < arrcat.length; i++) {
+                $.ajax({
+                    url: arrcat[i].url,
+                    type: 'GET'
+                }).done(function (resp) {
+                    var guardarItem = resp.items;
+                    for (let j = 0; j < guardarItem.length; j++) {
 
-                    $.ajax({
-                        url: arrcat[i].url,
-                        type: 'GET'
-                    }).done(function(resp){
-                        var guardarItem = resp.items;
-                        for (let j = 0; j < guardarItem.length; j++) {
-                          
-                            $.ajax({
-                                url:guardarItem[j].url,
-                                type:'GET'
-                            }).done(function(name){
-                                var cd= name.effect_entries;
-                                
-                                for (let w = 0; w < cd.length; w++) {
-                                    console.log(cd[w].short_effect)
-                                
-                                    var template = `<tr class="Justify-content-bettwen">
+                        $.ajax({
+                            url: guardarItem[j].url,
+                            type: 'GET'
+                        }).done(function (sexo) {
+                            var cd = name.effect_entries;
+
+                            for (let w = 0; w < cd.length; w++) {
+                                console.log(cd[w].short_effect)
+
+                                var template = `<tr class="Justify-content-bettwen">
                                     <td class="d-flex justify-content-between" >
                                     <span id="spn" title="${cd[w].short_effect}">${guardarItem[j].name}</span>
                                     <span>${name.cost}¥</span>
                                     </td>
                                     </tr>`;
-                                    $('#nombre').append(template);
-                                    $("span").hover(function(){
-                                        $('#descripcion').removeClass('d-none');
-                                        $('#descripcion').html(cd[w].short_effect);
-                                    }, function(){
-                                        $('span').find('span').last().remove();
-                                    })
-                                }
-                            })
-
-                         
-                            
-                        }
-                    })
+                                $('#nombre').append(template);
+                                $("span").hover(function () {
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(cd[w].short_effect);
+                                }, function () {
+                                    $('span').find('span').last().remove();
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(' ');
+                                })
+                            }
+                        })
 
 
-                }
 
-            })
-            
-           
-                       
+                    }
+                })
+
+
+            }
+
         })
-    
-   
-        $(document).on('click','#bici',function(){
-            $('#nombre').empty();
-            $.ajax({
-                url:'https://pokeapi.co/api/v2/item-pocket/8/',
-                type:'GET'
-            }).done(function(itCat){
-                var saveIt=itCat.categories;
-                for (var t = 0; t < saveIt.length; t++) {
-                   $.ajax({
-                    url:saveIt[t].url,
-                    type:'GET'
-                   }).done(function(cat){
+
+
+
+    })
+
+
+    $(document).on('click', '#bici', function () {
+        $('#nombre').empty();
+        $.ajax({
+            url: 'https://pokeapi.co/api/v2/item-pocket/8/',
+            type: 'GET'
+        }).done(function (itCat) {
+            var saveIt = itCat.categories;
+            for (var t = 0; t < saveIt.length; t++) {
+                $.ajax({
+                    url: saveIt[t].url,
+                    type: 'GET'
+                }).done(function (cat) {
                     var saveCat = cat.items;
                     for (let s = 0; s < saveCat.length; s++) {
                         console.log(saveCat[s].url)
                         $.ajax({
-                            url:saveCat[s].url,
-                            type:'GET'
-                        }).done(function(cost){
+                            url: saveCat[s].url,
+                            type: 'GET'
+                        }).done(function (cost) {
                             var template = `<tr class="Justify-content-bettwen">
                             <td class="d-flex justify-content-between" >
                             
@@ -106,21 +107,21 @@ $(document).ready(function(){
                         </tr>`;
                             $('#nombre').append(template);
                         })
-                        
+
                     }
-                   })
-                    
-                }
-            })
+                })
+
+            }
         })
     })
+})
 
-       
 
 
-   
-    
 
-    
-    
-   
+
+
+
+
+
+
