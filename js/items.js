@@ -19,56 +19,52 @@
 */
 
 $(document).ready(function () {
-
     $(document).on('click', '#poke', function () {
         $('#nombre').empty();
         $.ajax({
             url: 'https://pokeapi.co/api/v2/item-pocket/1/',
             type: 'GET'
         }).done(function (resp) {
-            var arrcat = resp.categories;
-            for (let i = 0; i < arrcat.length; i++) {
+            var arrCat = resp.categories;
+            arrCat.forEach(cat => {
                 $.ajax({
-                    url: arrcat[i].url,
+                    url: cat.url,
                     type: 'GET'
-                }).done(function (resp) {
-                    var guardarItem = resp.items;
-                    for (let j = 0; j < guardarItem.length; j++) {
-
+                }).done(function (respCat) {
+                    var itemList = respCat.items;
+                    itemList.forEach(item => {
                         $.ajax({
-                            url: guardarItem[j].url,
+                            url: item.url,
                             type: 'GET'
-                        }).done(function (sexo) {
-                            var cd = name.effect_entries;
+                        }).done(function (itemSelec) {
+                            var efecto = itemSelec.effect_entries[0].short_effect;
 
-                            for (let w = 0; w < cd.length; w++) {
-                                console.log(cd[w].short_effect)
-
-                                var template = `<tr class="Justify-content-bettwen">
+                            var template = `<tr class="Justify-content-bettwen">
                                     <td class="d-flex justify-content-between" >
-                                    <span id="spn" title="${cd[w].short_effect}">${guardarItem[j].name}</span>
-                                    <span>${name.cost}¥</span>
+                                    <span id="spn" title="${efecto}" foto="${itemSelec.sprites.default}">${itemSelec.name}</span>
+                                    <span>${itemSelec.cost}¥</span>
                                     </td>
                                     </tr>`;
-                                $('#nombre').append(template);
-                                $("span").hover(function () {
-                                    $('#descripcion').removeClass('d-none');
-                                    $('#descripcion').html(cd[w].short_effect);
-                                }, function () {
-                                    $('span').find('span').last().remove();
-                                    $('#descripcion').removeClass('d-none');
-                                    $('#descripcion').html(' ');
-                                })
-                            }
+                            $('#nombre').append(template);
+                            $("span").hover(function () {
+                                var verDescrip = $(this).attr('title');
+                                var foto = $(this).attr('foto');
+                                $('#descripcion').removeClass('d-none');
+                                $('#descripcion').html(verDescrip);
+                                $('#img').children().attr('src', foto)
+                            }, function () {
+                                $('span').find('span').last().remove();
+                                $('#descripcion').removeClass('d-none');
+                                $('#descripcion').html(' ');
+                                $('#img').children().attr('src', '')
+
+                            })
                         })
+                    });
 
-
-
-                    }
                 })
+            });
 
-
-            }
 
         })
 
