@@ -51,12 +51,13 @@ $(document).ready(function () {
                                 var foto = $(this).attr('foto');
                                 $('#descripcion').removeClass('d-none');
                                 $('#descripcion').html(verDescrip);
+                               
                                 $('#img').children().attr('src', foto)
                             }, function () {
                                 $('span').find('span').last().remove();
                                 $('#descripcion').removeClass('d-none');
                                 $('#descripcion').html(' ');
-                                $('#img').children().attr('src', '')
+                                $('#img').html('<ion-icon name="information-circle-outline" ></ion-icon>')
 
                             })
                         })
@@ -65,7 +66,7 @@ $(document).ready(function () {
                 })
             });
 
-
+            
         })
 
 
@@ -92,22 +93,391 @@ $(document).ready(function () {
                             url: saveCat[s].url,
                             type: 'GET'
                         }).done(function (cost) {
-                            var template = `<tr class="Justify-content-bettwen">
-                            <td class="d-flex justify-content-between" >
+                            var short_effect=cost.effect_entries[0].short_effect;;
                             
-                            <span >${saveCat[s].name}</span>
-                            <span >${cost.cost}¥</span>
-                            </td>
-  
-  
-                        </tr>`;
-                            $('#nombre').append(template);
+                           
+                                
+
+                                var template = `<tr class="Justify-content-bettwen">
+                                <td class="d-flex justify-content-between" >
+                                
+                                <span id="spn" title="${short_effect} foto="${cost.sprites.default}">${cost.name}</span>
+                                <span >${cost.cost}¥</span>
+                                </td>
+                            </tr>`;
+                                $('#nombre').append(template);
+                                $("span").hover(function () {
+                                    var verDescrip = $(this).attr('title');
+                                    var foto = $(this).attr('foto');
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(verDescrip);
+                                   
+                                    $('#img').children().attr('src', foto)
+                                }, function () {
+                                    $('span').find('span').last().remove();
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(' ');
+                                    $('#img').html('<ion-icon name="information-circle-outline" ></ion-icon>')
+    
+                                })
+                                
+                            
+                           
                         })
 
                     }
                 })
 
             }
+            
+        })
+    })
+    $(document).on('click', '#pociones', function () {
+        $('#nombre').empty();
+        $.ajax({
+            url: 'https://pokeapi.co/api/v2/item-pocket/2/',
+            type: 'GET'
+        }).done(function (itCat) {
+            var saveIt = itCat.categories;
+            for (var t = 0; t < saveIt.length; t++) {
+                $.ajax({
+                    url: saveIt[t].url,
+                    type: 'GET'
+                }).done(function (cat) {
+                    var saveCat = cat.items;
+                    for (let s = 0; s < saveCat.length; s++) {
+                        console.log(saveCat[s].url)
+                        $.ajax({
+                            url: saveCat[s].url,
+                            type: 'GET'
+                        }).done(function (cost) {
+                            var short_effect=cost.effect_entries[0].short_effect;;
+                            
+                           
+                                
+
+                                var template = `<tr class="Justify-content-bettwen">
+                                <td class="d-flex justify-content-between" >
+                                
+                                <span id="spn" title="${short_effect} foto="${cost.sprites.default}">${cost.name}</span>
+                                <span >${cost.cost}¥</span>
+                                </td>
+                            </tr>`;
+                                $('#nombre').append(template);
+                                $("span").hover(function () {
+                                    var verDescrip = $(this).attr('title');
+                                    var foto = $(this).attr('foto');
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(verDescrip);
+                                   
+                                    $('#img').children().attr('src', foto)
+                                }, function () {
+                                    $('span').find('span').last().remove();
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(' ');
+                                    $('#img').html('<ion-icon name="information-circle-outline" ></ion-icon>')
+    
+                                })
+                                
+                            
+                           
+                        })
+
+                    }
+                })
+
+            }
+            
+        })
+    })
+    $(document).on('click', '#vaya', function () {
+        $('#nombre').empty();
+        $.ajax({
+            url: 'https://pokeapi.co/api/v2/item-pocket/7/',
+            type: 'GET'
+        }).done(function (itCat) {
+            var saveIt = itCat.categories;
+            for (var t = 0; t < saveIt.length; t++) {
+                $.ajax({
+                    url: saveIt[t].url,
+                    type: 'GET'
+                }).done(function (cat) {
+                    var saveCat = cat.items;
+                    for (let s = 0; s < saveCat.length; s++) {
+                        console.log(saveCat[s].url)
+                        $.ajax({
+                            url: saveCat[s].url,
+                            type: 'GET'
+                        }).done(function (cost) {
+                            var short_effect=cost.effect_entries[0].short_effect;;
+                            
+                           
+                                
+
+                                var template = `<tr class="Justify-content-bettwen">
+                                <td class="d-flex justify-content-between" >
+                                
+                                <span id="spn" title="${short_effect} foto="${cost.sprites.default}">${cost.name}</span>
+                                <span >${cost.cost}¥</span>
+                                </td>
+                            </tr>`;
+                                $('#nombre').append(template);
+                                $("span").hover(function () {
+                                    var verDescrip = $(this).attr('title');
+                                    var foto = $(this).attr('foto');
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(verDescrip);
+                                   
+                                    $('#img').children().attr('src', foto)
+                                }, function () {
+                                    $('span').find('span').last().remove();
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(' ');
+                                    $('#img').html('<ion-icon name="information-circle-outline" ></ion-icon>')
+    
+                                })
+                                
+                            
+                           
+                        })
+
+                    }
+                })
+
+            }
+            
+        })
+    })
+    $(document).on('click', '#carta', function () {
+        $('#nombre').empty();
+        $.ajax({
+            url: 'https://pokeapi.co/api/v2/item-pocket/6/',
+            type: 'GET'
+        }).done(function (itCat) {
+            var saveIt = itCat.categories;
+            for (var t = 0; t < saveIt.length; t++) {
+                $.ajax({
+                    url: saveIt[t].url,
+                    type: 'GET'
+                }).done(function (cat) {
+                    var saveCat = cat.items;
+                    for (let s = 0; s < saveCat.length; s++) {
+                        console.log(saveCat[s].url)
+                        $.ajax({
+                            url: saveCat[s].url,
+                            type: 'GET'
+                        }).done(function (cost) {
+                            var short_effect=cost.effect_entries[0].short_effect;;
+                            
+                           
+                                
+
+                                var template = `<tr class="Justify-content-bettwen">
+                                <td class="d-flex justify-content-between" >
+                                
+                                <span id="spn" title="${short_effect} foto="${cost.sprites.default}">${cost.name}</span>
+                                <span >${cost.cost}¥</span>
+                                </td>
+                            </tr>`;
+                                $('#nombre').append(template);
+                                $("span").hover(function () {
+                                    var verDescrip = $(this).attr('title');
+                                    var foto = $(this).attr('foto');
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(verDescrip);
+                                   
+                                    $('#img').children().attr('src', foto)
+                                }, function () {
+                                    $('span').find('span').last().remove();
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(' ');
+                                    $('#img').html('<ion-icon name="information-circle-outline" ></ion-icon>')
+    
+                                })
+                                
+                            
+                           
+                        })
+
+                    }
+                })
+
+            }
+            
+        })
+    })
+    $(document).on('click', '#cristal', function () {
+        $('#nombre').empty();
+        $.ajax({
+            url: 'https://pokeapi.co/api/v2/item-pocket/1/',
+            type: 'GET'
+        }).done(function (itCat) {
+            var saveIt = itCat.categories;
+            for (var t = 0; t < saveIt.length; t++) {
+                $.ajax({
+                    url: saveIt[t].url,
+                    type: 'GET'
+                }).done(function (cat) {
+                    var saveCat = cat.items;
+                    for (let s = 0; s < saveCat.length; s++) {
+                        console.log(saveCat[s].url)
+                        $.ajax({
+                            url: saveCat[s].url,
+                            type: 'GET'
+                        }).done(function (cost) {
+                            var short_effect=cost.effect_entries[0].short_effect;;
+                            
+                           
+                                
+
+                                var template = `<tr class="Justify-content-bettwen">
+                                <td class="d-flex justify-content-between" >
+                                
+                                <span id="spn" title="${short_effect} foto="${cost.sprites.default}">${cost.name}</span>
+                                <span >${cost.cost}¥</span>
+                                </td>
+                            </tr>`;
+                                $('#nombre').append(template);
+                                $("span").hover(function () {
+                                    var verDescrip = $(this).attr('title');
+                                    var foto = $(this).attr('foto');
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(verDescrip);
+                                   
+                                    $('#img').children().attr('src', foto)
+                                }, function () {
+                                    $('span').find('span').last().remove();
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(' ');
+                                    $('#img').html('<ion-icon name="information-circle-outline" ></ion-icon>')
+    
+                                })
+                                
+                            
+                           
+                        })
+
+                    }
+                })
+
+            }
+            
+        })
+    })
+    $(document).on('click', '#disco', function () {
+        $('#nombre').empty();
+        $.ajax({
+            url: 'https://pokeapi.co/api/v2/item-pocket/1/',
+            type: 'GET'
+        }).done(function (itCat) {
+            var saveIt = itCat.categories;
+            for (var t = 0; t < saveIt.length; t++) {
+                $.ajax({
+                    url: saveIt[t].url,
+                    type: 'GET'
+                }).done(function (cat) {
+                    var saveCat = cat.items;
+                    for (let s = 0; s < saveCat.length; s++) {
+                        console.log(saveCat[s].url)
+                        $.ajax({
+                            url: saveCat[s].url,
+                            type: 'GET'
+                        }).done(function (cost) {
+                            var short_effect=cost.effect_entries[0].short_effect;;
+                            
+                           
+                                
+
+                                var template = `<tr class="Justify-content-bettwen">
+                                <td class="d-flex justify-content-between" >
+                                
+                                <span id="spn" title="${short_effect} foto="${cost.sprites.default}">${cost.name}</span>
+                                <span >${cost.cost}¥</span>
+                                </td>
+                            </tr>`;
+                                $('#nombre').append(template);
+                                $("span").hover(function () {
+                                    var verDescrip = $(this).attr('title');
+                                    var foto = $(this).attr('foto');
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(verDescrip);
+                                   
+                                    $('#img').children().attr('src', foto)
+                                }, function () {
+                                    $('span').find('span').last().remove();
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(' ');
+                                    $('#img').html('<ion-icon name="information-circle-outline" ></ion-icon>')
+    
+                                })
+                                
+                            
+                           
+                        })
+
+                    }
+                })
+
+            }
+            
+        })
+    })
+    $(document).on('click', '#razze', function () {
+        $('#nombre').empty();
+        $.ajax({
+            url: 'https://pokeapi.co/api/v2/item-pocket/5/',
+            type: 'GET'
+        }).done(function (itCat) {
+            var saveIt = itCat.categories;
+            for (var t = 0; t < saveIt.length; t++) {
+                $.ajax({
+                    url: saveIt[t].url,
+                    type: 'GET'
+                }).done(function (cat) {
+                    var saveCat = cat.items;
+                    for (let s = 0; s < saveCat.length; s++) {
+                        console.log(saveCat[s].url)
+                        $.ajax({
+                            url: saveCat[s].url,
+                            type: 'GET'
+                        }).done(function (cost) {
+                            var short_effect=cost.effect_entries[0].short_effect;;
+                            
+                           
+                                
+
+                                var template = `<tr class="Justify-content-bettwen">
+                                <td class="d-flex justify-content-between" >
+                                
+                                <span id="spn" title="${short_effect} foto="${cost.sprites.default}">${cost.name}</span>
+                                <span >${cost.cost}¥</span>
+                                </td>
+                            </tr>`;
+                                $('#nombre').append(template);
+                                $("span").hover(function () {
+                                    var verDescrip = $(this).attr('title');
+                                    var foto = $(this).attr('foto');
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(verDescrip);
+                                   
+                                    $('#img').children().attr('src', foto)
+                                }, function () {
+                                    $('span').find('span').last().remove();
+                                    $('#descripcion').removeClass('d-none');
+                                    $('#descripcion').html(' ');
+                                    $('#img').html('<ion-icon name="information-circle-outline" ></ion-icon>')
+    
+                                })
+                                
+                            
+                           
+                        })
+
+                    }
+                })
+
+            }
+            
         })
     })
 })
