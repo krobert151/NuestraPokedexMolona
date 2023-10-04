@@ -208,10 +208,11 @@ margin-top: 3%;
     text-align: center;
 }
 .info{
+    display: flex;
     height: 100px;
     background-color: #0079C1;
 }
-.info div{
+.info #img{
     border-radius: 10pt;
     margin-left: 2%;
     margin-top: 1%;
@@ -220,6 +221,7 @@ margin-top: 3%;
     width: 80px;
     height: 80px;
 }
+
 
 .modal-body {
     border-radius: 15pt;

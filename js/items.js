@@ -41,15 +41,23 @@ $(document).ready(function(){
                                 type:'GET'
                             }).done(function(name){
                                 var cd= name.effect_entries;
+                                
                                 for (let w = 0; w < cd.length; w++) {
                                     console.log(cd[w].short_effect)
+                                
                                     var template = `<tr class="Justify-content-bettwen">
                                     <td class="d-flex justify-content-between" >
-                                    <span title="${cd[w].short_effect}">${guardarItem[j].name}</span>
+                                    <span id="spn" title="${cd[w].short_effect}">${guardarItem[j].name}</span>
                                     <span>${name.cost}¥</span>
                                     </td>
                                     </tr>`;
                                     $('#nombre').append(template);
+                                    $("span").hover(function(){
+                                        $('#descripcion').removeClass('d-none');
+                                        $('#descripcion').html(cd[w].short_effect);
+                                    }, function(){
+                                        $('span').find('span').last().remove();
+                                    })
                                 }
                             })
 
