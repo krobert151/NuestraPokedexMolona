@@ -14,30 +14,40 @@ $(document).ready(function(){
         }).done(function(resp){
             var urlCat = resp.category.url;
             alert(urlCat);
-          $.ajax({
-            url:urlCat,
-            type:'GET'
-          }).done(function(respurlcat){
-            var itempocket=respurlcat.pocket.url;
-            $.ajax({
-                url:itempocket,
-                type:'GET'
-
-            }).done(function(respPocket){
-                var final=respPocket.results;
-                for (let index = 0; index < urlCat.length; index++) {
-                    var template = `<tr class="Justify-content-bettwen">
-                                <td class="d-flex justify-content-between" >
+            urlCat.forEach(element => {
+                $.ajax({
+                    url:element,
+                    type:'GET'
+                  }).done(function(respurlcat){
+                    var itempocket=respurlcat.pocket.url;
+                    alert(itempocket);
+                    $.ajax({
+                        url:itempocket,
+                        type:'GET'
+        
+                    }).done(function(respPocket){
+                        var final=respPocket.results;
+                        $.ajax({
+                            url: final,
+                            type:'GET'
+                        }).done(function(pocket){
+                            for (let index = 0; index < urlCat.length; index++) {
+                                var template = `<tr class="Justify-content-bettwen">
+                                            <td class="d-flex justify-content-between" >
+                                            
+                                            <span id="spn"  >${resp.name}</span>
+                                            <span >${respPocket.cost}¥</span>
+                                            </td>
+                                        </tr>`;
+                                            $('#nombre').append(template);
                                 
-                                <span id="spn"  >${urlCat.name}</span>
-                                <span >${urlCat.cost}¥</span>
-                                </td>
-                            </tr>`;
-                                $('#nombre').append(template);
-                    
-                }
-            })
-
+                            }
+                        })
+                       
+                    })
+        
+            });
+         
           })
         })
         
