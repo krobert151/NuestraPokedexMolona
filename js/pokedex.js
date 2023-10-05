@@ -1,24 +1,118 @@
 $(document).ready(() => {
-
-
-
-
-
-
-
     $.ajax({
-        url: 'https://pokeapi.co/api/v2/pokemon?limit=1010&offset=0',
+        url: `https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`,
         type: 'GET'
     }).done(function (a) {
         var pokeLis = a.results;
+        var numTotalPaginas = Math.ceil(pokeLis.length / 20)
 
-        pokeLis.forEach(poke => {
-            var i = poke.url.split('/').reverse()[1];
-            var template = `<div class="col-12 col-md-3 col-xl-2 col-xxl-1 card bglilaPkdex btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" personajeid="${i}">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png" class="card-img" alt="...">
-                            </div>`;
-            $('#pokeList').append(template);
+
+        var navAnterior = `<div class="col-1  navAnterior">
+                                <span class="numPag"><<|</span>
+                            </div>`
+        $('#paginator').append(navAnterior);
+        var flechitaiz = `<div class="col-1  anterior">
+                                <span class="numPag"><</span>
+                            </div>`
+        $('#paginator').append(flechitaiz);
+        for (let i = 0; i < 5; i++) {
+            var template = `<div class="col-1 buttonpage" page="${i + 1}">
+                                <span class="numPag">${i + 1}</span>
+                            </div>`
+            $('#paginator').append(template);
+
+        }
+        var flechitader = `<div class="col-1  siguiente">
+                                <span class="numPag">></span>
+                            </div>`
+        $('#paginator').append(flechitader);
+        var navSiguiente = `<div class="col-1  navSiguiente">
+                                <span class="numPag">|>></span>
+                            </div>`
+        $('#paginator').append(navSiguiente);
+
+
+
+        $.ajax({
+            url: `https://pokeapi.co/api/v2/pokemon?limit=20&offset=0`,
+            type: 'GET'
+        }).done(function (PokePage) {
+            pokeListPag = PokePage.results;
+            pokeListPag.forEach(poke => {
+                var i = poke.url.split('/').reverse()[1];
+                var template = `<div class="col-12 col-md-3 col-xl-2 col-xxl-1 card bglilaPkdex btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" personajeid="${i}">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png" class="card-img" alt="...">
+                                </div>`;
+                $('#pokeList').append(template);
+            });
         });
+        //CLIKCAR EN BOTON NUMERICO
+        $(document).on('click', '.buttonpage', function () {
+            page = $(this).attr('page');
+            $('#pokeList').attr('page', page);
+            $('#pokeList').children().remove();
+            var pageOffset = (page * 20) - 20;
+            $.ajax({
+                url: `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${pageOffset}`,
+                type: 'GET'
+            }).done(function (PokePage) {
+
+                pokeListPag = PokePage.results;
+                pokeListPag.forEach(poke => {
+                    var i = poke.url.split('/').reverse()[1];
+                    var template = `<div class="col-12 col-md-3 col-xl-2 col-xxl-1 card bglilaPkdex btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" personajeid="${i}">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png" class="card-img" alt="...">
+                                    </div>`;
+                    $('#pokeList').append(template);
+                });
+            });
+        })
+        //CLICKAR EN BOTON ANTERIOR "<"
+        $(document).on('click', '.anterior', function () {
+            page = $('#pokeList').attr('page');
+            page--;
+            $('#pokeList').attr('page', page);
+            $('#pokeList').children().remove();
+            var pageOffset = (page * 20) - 20;
+            $.ajax({
+                url: `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${pageOffset}`,
+                type: 'GET'
+            }).done(function (PokePage) {
+
+                pokeListPag = PokePage.results;
+                pokeListPag.forEach(poke => {
+                    var i = poke.url.split('/').reverse()[1];
+                    var template = `<div class="col-12 col-md-3 col-xl-2 col-xxl-1 card bglilaPkdex btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" personajeid="${i}">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png" class="card-img" alt="...">
+                                    </div>`;
+                    $('#pokeList').append(template);
+                });
+            });
+        })
+        //CLICKAR EN BOTON SIGUIENTE ">"
+        $(document).on('click', '.siguiente', function () {
+            page = $('#pokeList').attr('page');
+            page++;
+            $('#pokeList').attr('page', page);
+            $('#pokeList').children().remove();
+            var pageOffset = (page * 20) - 20;
+            $.ajax({
+                url: `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${pageOffset}`,
+                type: 'GET'
+            }).done(function (PokePage) {
+
+                pokeListPag = PokePage.results;
+                pokeListPag.forEach(poke => {
+                    var i = poke.url.split('/').reverse()[1];
+                    var template = `<div class="col-12 col-md-3 col-xl-2 col-xxl-1 card bglilaPkdex btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" personajeid="${i}">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png" class="card-img" alt="...">
+                                    </div>`;
+                    $('#pokeList').append(template);
+                });
+            });
+        })
+
+
     });
     $(document).on('click', '*', function () {
         $('#type1').parent().removeClass();
