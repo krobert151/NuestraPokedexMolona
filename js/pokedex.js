@@ -1,11 +1,18 @@
 $(document).ready(() => {
 
+
+
+
+
+
+
     $.ajax({
         url: 'https://pokeapi.co/api/v2/pokemon?limit=1010&offset=0',
         type: 'GET'
     }).done(function (a) {
         var pokeLis = a.results;
         var i = 1;
+
         pokeLis.forEach(poke => {
             var template = `<div class="col-12 col-md-3 col-xl-2 col-xxl-1 card bglilaPkdex btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" personajeid="${i}">
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png" class="card-img" alt="...">
