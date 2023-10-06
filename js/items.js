@@ -40,36 +40,37 @@ $(document).ready(function(){
                                         url:cat[j].url,
                                         type:'GET'
                                     }).done(function(itemsresults){
-                                       
-                                        var descripcion = itemsresults.effect_entries[0].short_effect;
-                                        var template = `<tr class="Justify-content-bettwen">
-                                        <td class="d-flex justify-content-between" >
-                                        
-                                        <span id="spn" title="${descripcion}" foto="${itemsresults.sprites.default}">${itemsresults.name}</span>
-                                        <span >${itemsresults.cost}¥</span>
-                                        </td>
-                                    </tr>`;
-                                        $('h2').html(saveurlcat.pocket.name);
-                                        $('#nombre').append(template);
-                                        $("span").hover(function () {
-                                            var verDescrip = $(this).attr('title');
-                                            var foto = $(this).attr('foto');
-                                            $('#descripcion').removeClass('d-none');
-                                            if (verDescrip!=null) {
-                                                $('#descripcion').html(verDescrip);
-                                            }else{
-                                                $('#descripcion').html('no description');
-                                            }
+                                        if (itemsresults.effect_entries && itemsresults.effect_entries.length > 0) {
+                                            var descripcion = itemsresults.effect_entries[0].short_effect;
+                                            var template = `<tr class="Justify-content-bettwen">
+                                            <td class="d-flex justify-content-between" >
                                             
-                                           
-                                            $('#img').children().attr('src', foto)
-                                        }, function () {
-                                            $('span').find('span').last().remove();
-                                            $('#descripcion').removeClass('d-none');
-                                            $('#descripcion').html(' ');
-                                           
-            
-                                        })
+                                            <span id="spn" title="${descripcion}" foto="${itemsresults.sprites.default}">${itemsresults.name}</span>
+                                            <span >${itemsresults.cost}¥</span>
+                                            </td>
+                                        </tr>`;
+                                            $('h2').html(saveurlcat.pocket.name);
+                                            $('#nombre').append(template);
+                                    
+                                            $("span").hover(function () {
+                                                var verDescrip = $(this).attr('title');
+                                                var foto = $(this).attr('foto');
+                                                $('#descripcion').removeClass('d-none');
+                                               
+                                                    $('#descripcion').html(verDescrip);
+                                                             
+                                                $('#img').children().attr('src', foto)
+                                            }, function () {
+                                                $('span').find('span').last().remove();
+                                                $('#descripcion').removeClass('d-none');
+                                                $('#descripcion').html(' ');
+                                                              
+                                            })
+                                            
+                                        } else {
+                                            $('#descripcion').html('no description');
+                                        }
+                                                                                              
                                     })
                                 }
                             })
@@ -85,7 +86,7 @@ $(document).ready(function(){
         })
         
 
-
+    
     })
     
     
