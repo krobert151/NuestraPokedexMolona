@@ -7,48 +7,81 @@ $(document).ready(function(){
         var reves= seperados.reverse();
         var palabra=reves[0];
         var troceoagain = palabra.slice(0,-4);
-       
+        if(troceoagain=="tm-normal"){
+            troceoagain = "tm01"
+        }
+       $('#nombre').children().remove();
         $.ajax({
             url:'https://pokeapi.co/api/v2/item/'+troceoagain,
             type:'GET'
         }).done(function(resp){
             var urlCat = resp.category.url;
-            alert(urlCat);
-            urlCat.forEach(element => {
+            
                 $.ajax({
-                    url:element,
+                    url:urlCat,
                     type:'GET'
                   }).done(function(respurlcat){
                     var itempocket=respurlcat.pocket.url;
-                    alert(itempocket);
+                   
                     $.ajax({
                         url:itempocket,
                         type:'GET'
         
                     }).done(function(respPocket){
-                        var final=respPocket.results;
-                        $.ajax({
-                            url: final,
-                            type:'GET'
-                        }).done(function(pocket){
-                            for (let index = 0; index < urlCat.length; index++) {
-                                var template = `<tr class="Justify-content-bettwen">
-                                            <td class="d-flex justify-content-between" >
+                        var final=respPocket.categories;
+                        for (let i = 0; i < final.length; i++) {
+                            $.ajax({
+                                url:final[i].url,
+                                type:'GET'
+                            }).done(function(saveurlcat){
+                                var cat=saveurlcat.items;
+                                for (let j = 0; j < cat.length; j++) {
+                                    $.ajax({
+                                        url:cat[j].url,
+                                        type:'GET'
+                                    }).done(function(itemsresults){
+                                       
+                                        var descripcion = itemsresults.effect_entries[0].short_effect;
+                                        var template = `<tr class="Justify-content-bettwen">
+                                        <td class="d-flex justify-content-between" >
+                                        
+                                        <span id="spn" title="${descripcion}" foto="${itemsresults.sprites.default}">${itemsresults.name}</span>
+                                        <span >${itemsresults.cost}¥</span>
+                                        </td>
+                                    </tr>`;
+                                        $('h2').html(saveurlcat.pocket.name);
+                                        $('#nombre').append(template);
+                                        $("span").hover(function () {
+                                            var verDescrip = $(this).attr('title');
+                                            var foto = $(this).attr('foto');
+                                            $('#descripcion').removeClass('d-none');
+                                            if (verDescrip!=null) {
+                                                $('#descripcion').html(verDescrip);
+                                            }else{
+                                                $('#descripcion').html('no description');
+                                            }
                                             
-                                            <span id="spn"  >${resp.name}</span>
-                                            <span >${respPocket.cost}¥</span>
-                                            </td>
-                                        </tr>`;
-                                            $('#nombre').append(template);
-                                
-                            }
-                        })
+                                           
+                                            $('#img').children().attr('src', foto)
+                                        }, function () {
+                                            $('span').find('span').last().remove();
+                                            $('#descripcion').removeClass('d-none');
+                                            $('#descripcion').html(' ');
+                                           
+            
+                                        })
+                                    })
+                                }
+                            })
+                            
+                        }
+                    
                        
                     })
         
             });
          
-          })
+         
         })
         
 
