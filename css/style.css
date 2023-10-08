@@ -263,9 +263,7 @@ header img {
 .navbar {
     background: rgb(228, 228, 228);
     background: linear-gradient(0deg, rgba(228, 228, 228, 1) 0%, rgba(205, 205, 205, 1) 100%);
-
 }
-
 .search-icon {
     background-image: url('/img/pokeball.png');
     height: 50px;
