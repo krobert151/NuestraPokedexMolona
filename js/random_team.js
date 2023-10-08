@@ -235,7 +235,6 @@ $(document).ready(() => {
                     url: "https://pokeapi.co/api/v2/item-attribute/3",
                     type: "GET"
                 }).done(function (obj) {
-
                     $.ajax({
                         url: obj.items[randomObjNumber].url,
                         type: 'GET'
