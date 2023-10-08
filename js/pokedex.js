@@ -4,8 +4,22 @@ $(document).ready(() => {
         type: 'GET'
     }).done(function (a) {
         var pokeLis = a.results;
-        var numTotalPaginas = Math.ceil(pokeLis.length / 20)
-
+        var numTotalPaginas = Math.ceil(pokeLis.length / 20);
+        //FIND BY POKEMON NAME ->
+        $(document).on('input',function() {
+            $('#pokeList').children().remove();
+            var pokeName = $('#findPokeName').val().toLowerCase();
+            pokeLis.forEach( poke => {
+                if(poke.name.toLowerCase().includes(pokeName)){
+                    var i = poke.url.split('/').reverse()[1];
+                var template = `<div class="col-12 col-md-4 col-xl-4 col-xxl-2 card bglilaPkdex btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" personajeid="${i}">
+                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png" class="card-img" alt="...">
+                                </div>`;
+                $('#pokeList').append(template);
+                }   
+            });            
+        });
+        //FIND BY POKEMON NAME <-
         //DEFAULT PAGE ->
         var navAnterior = `<div class="col-1  navAnterior">
                                 <span class="numPag"><<|</span>
@@ -20,7 +34,6 @@ $(document).ready(() => {
                                 <span class="numPag">${i + 1}</span>
                             </div>`
             $('#paginator').append(template);
-
         }
         var flechitader = `<div class="col-1  siguiente">
                                 <span class="numPag">></span>
@@ -30,7 +43,6 @@ $(document).ready(() => {
                                 <span class="numPag">|>></span>
                             </div>`
         $('#paginator').append(navSiguiente);
-
         $.ajax({
             url: `https://pokeapi.co/api/v2/pokemon?limit=20&offset=0`,
             type: 'GET'
@@ -45,7 +57,6 @@ $(document).ready(() => {
             });
         });
         //DEFAULT PAGE <-
-
         //CLICK ON SHOW MORW PAGES ->
         $(document).on('click', '.navSiguiente', function () {
             page = $('#pokeList').attr('page');
@@ -53,9 +64,7 @@ $(document).ready(() => {
             newPage = (page5on5 * 5) + 1;
             $('#pokeList').removeAttr('page');
             $('#pokeList').attr('page', newPage);
-
             $('#paginator').children().remove();
-
             var navAnterior = `<div class="col-1  navAnterior">
                                 <span class="numPag"><<|</span>
                             </div>`
@@ -69,7 +78,6 @@ $(document).ready(() => {
                                 <span class="numPag">${i + 1}</span>
                             </div>`
                 $('#paginator').append(template);
-
             }
             var flechitader = `<div class="col-1  siguiente">
                                 <span class="numPag">></span>
@@ -79,14 +87,12 @@ $(document).ready(() => {
                                 <span class="numPag">|>></span>
                             </div>`
             $('#paginator').append(navSiguiente);
-
             $('#pokeList').children().remove();
             var pageOffset = (newPage * 20) - 20;
             $.ajax({
                 url: `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${pageOffset}`,
                 type: 'GET'
             }).done(function (PokePage) {
-
                 pokeListPag = PokePage.results;
                 pokeListPag.forEach(poke => {
                     var i = poke.url.split('/').reverse()[1];
@@ -96,23 +102,17 @@ $(document).ready(() => {
                     $('#pokeList').append(template);
                 });
             });
-
-
         })
         //CLICK ON SHOW MORW PAGES <-
-
         //CLICK ON SHOW LESS PAGES ->
         $(document).on('click', '.navAnterior', function () {
             page = $('#pokeList').attr('page');
-            alert("actual page" + page)
             page5on5 = Math.ceil(page / 5)
-            alert("Old Page range" + page5on5)
             newPage = (page5on5 - 1) * 5;
-            alert("New Page" + newPage)
+            if (page5on5 != 1){
             $('#pokeList').removeAttr('page');
             $('#pokeList').attr('page', newPage);
             $('#paginator').children().remove();
-
             var navAnterior = `<div class="col-1  navAnterior">
                                 <span class="numPag"><<|</span>
                             </div>`
@@ -121,12 +121,12 @@ $(document).ready(() => {
                                 <span class="numPag"><</span>
                             </div>`
             $('#paginator').append(flechitaiz);
-            for (let i = (page5on5 * 5); i < ((page5on5 + 1) * 5); i++) {
+            var minPageFor = newPage - 5;
+            for (let i = minPageFor; i < newPage; i++) {
                 var template = `<div class="col-1 buttonpage" page="${i + 1}">
                                 <span class="numPag">${i + 1}</span>
                             </div>`
                 $('#paginator').append(template);
-
             }
             var flechitader = `<div class="col-1  siguiente">
                                 <span class="numPag">></span>
@@ -136,14 +136,12 @@ $(document).ready(() => {
                                 <span class="numPag">|>></span>
                             </div>`
             $('#paginator').append(navSiguiente);
-
             $('#pokeList').children().remove();
             var pageOffset = (newPage * 20) - 20;
             $.ajax({
                 url: `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${pageOffset}`,
                 type: 'GET'
             }).done(function (PokePage) {
-
                 pokeListPag = PokePage.results;
                 pokeListPag.forEach(poke => {
                     var i = poke.url.split('/').reverse()[1];
@@ -153,14 +151,12 @@ $(document).ready(() => {
                     $('#pokeList').append(template);
                 });
             });
-
-
-        })
+    }})
         //CLICK ON SHOW LESS PAGES <-
-
-
         //CLIKCAR EN BOTON NUMERICO ->
         $(document).on('click', '.buttonpage', function () {
+            $('.buttonpage').removeClass('selected');
+            $(this).addClass('selected');
             page = $(this).attr('page');
             $('#pokeList').attr('page', page);
             $('#pokeList').children().remove();
@@ -169,7 +165,6 @@ $(document).ready(() => {
                 url: `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${pageOffset}`,
                 type: 'GET'
             }).done(function (PokePage) {
-
                 pokeListPag = PokePage.results;
                 pokeListPag.forEach(poke => {
                     var i = poke.url.split('/').reverse()[1];
@@ -191,7 +186,6 @@ $(document).ready(() => {
                 url: `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${pageOffset}`,
                 type: 'GET'
             }).done(function (PokePage) {
-
                 pokeListPag = PokePage.results;
                 pokeListPag.forEach(poke => {
                     var i = poke.url.split('/').reverse()[1];
@@ -213,7 +207,6 @@ $(document).ready(() => {
                 url: `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${pageOffset}`,
                 type: 'GET'
             }).done(function (PokePage) {
-
                 pokeListPag = PokePage.results;
                 pokeListPag.forEach(poke => {
                     var i = poke.url.split('/').reverse()[1];
@@ -224,8 +217,6 @@ $(document).ready(() => {
                 });
             });
         })
-
-
     });
     $(document).on('click', '*', function () {
         $('#type1').parent().removeClass();
