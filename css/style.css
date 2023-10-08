@@ -155,11 +155,72 @@ body {
 }
 
 .modal-content {
-    border-radius: 15pt;
-    background: rgb(168, 144, 240);
-    background: linear-gradient(338deg, rgba(168, 144, 240, 1) 0%, rgba(156, 83, 31, 1) 100%);
-    padding: 2px;
+    width: 1000px;
+    background-image: url(../img/Group\ 90.png);
+    
 }
+.titulo{
+    
+    border: 3px solid black ;
+    border-right: 3px solid #F0C971 ;
+    
+}
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    width: 1000px;
+    background-image: url(../img/Group\ 90.png);
+    margin: auto;
+}
+
+
+.tabla{
+    width: 650px;
+    height: 300px;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    background-color: #F0C971;
+    border: 3px solid black ;
+}
+.tabla div{
+    height: 89%;
+    border-radius: 5pt;
+   
+    background-color: #D1B24F;
+    margin-left: 3%;
+    margin-top: 3%;
+    
+    margin-right: 3%;
+}
+.tituloModal .titulo{
+    
+    
+margin-left: 8%;
+margin-top: 3%;
+    background-color: #F0C971;
+}
+.tituloModal h2{
+    text-align: center;
+}
+.info{
+    display: flex;
+    height: 100px;
+    background-color: #0079C1;
+}
+.info #img{
+    border-radius: 10pt;
+    margin-left: 2%;
+    margin-top: 1%;
+    
+    background-color: white;
+    width: 80px;
+    height: 80px;
+}
+
 
 .modal-body {
     border-radius: 15pt;
@@ -171,18 +232,15 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-table>thead>tr>th {
-    border-top-right-radius: 15pt;
-    border-top-left-radius: 15pt;
+.table{
+    background-color: #F0C971;
+    width: 200px;
+}
+table{
+    width: 100%;
 }
 
-table>tbody>tr:last-child>td:nth-child(1) {
-    border-bottom-left-radius: 15pt;
-}
 
-table>tbody>tr:last-child>td:nth-child(2) {
-    border-bottom-right-radius: 15pt;
-}
 
 header {
     display: flex;
@@ -205,9 +263,7 @@ header img {
 .navbar {
     background: rgb(228, 228, 228);
     background: linear-gradient(0deg, rgba(228, 228, 228, 1) 0%, rgba(205, 205, 205, 1) 100%);
-
 }
-
 .search-icon {
     background-image: url('/img/pokeball.png');
     height: 50px;
@@ -398,6 +454,7 @@ header img {
     border-radius: 15pt;
 }
 
+
 .selected{
     background-color: rgba(0, 0, 0, 0.343);
 }
@@ -406,3 +463,4 @@ header img {
     justify-content: center;
     align-items: center;
 }
+
