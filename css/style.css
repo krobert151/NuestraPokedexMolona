@@ -157,14 +157,16 @@ body {
 .modal-content {
     width: 1000px;
     background-image: url(../img/Group\ 90.png);
-    
+
 }
-.titulo{
-    
-    border: 3px solid black ;
-    border-right: 3px solid #F0C971 ;
-    
+
+.titulo {
+
+    border: 3px solid black;
+    border-right: 3px solid #F0C971;
+
 }
+
 .modal-dialog {
     display: flex;
     align-items: center;
@@ -178,44 +180,49 @@ body {
 }
 
 
-.tabla{
+.tabla {
     width: 650px;
     height: 300px;
     margin-bottom: 1%;
     margin-top: 1%;
     background-color: #F0C971;
-    border: 3px solid black ;
+    border: 3px solid black;
 }
-.tabla div{
+
+.tabla div {
     height: 89%;
     border-radius: 5pt;
-   
+
     background-color: #D1B24F;
     margin-left: 3%;
     margin-top: 3%;
-    
+
     margin-right: 3%;
 }
-.tituloModal .titulo{
-    
-    
-margin-left: 8%;
-margin-top: 3%;
+
+.tituloModal .titulo {
+
+
+    margin-left: 8%;
+    margin-top: 3%;
     background-color: #F0C971;
 }
-.tituloModal h2{
+
+.tituloModal h2 {
     text-align: center;
 }
-.info{
+
+.info {
     display: flex;
     height: 100px;
     background-color: #0079C1;
 }
-.info #img{
+
+.info #img {
     border-radius: 10pt;
     margin-left: 2%;
     margin-top: 1%;
-    
+
     background-color: white;
     width: 80px;
     height: 80px;
@@ -232,11 +239,8 @@ margin-top: 3%;
     background-color: rgb(255, 255, 255);
 }
 
-.table{
-    background-color: #F0C971;
-    width: 200px;
-}
-table{
+
+table {
     width: 100%;
 }
 
@@ -264,6 +268,7 @@ header img {
     background: rgb(228, 228, 228);
     background: linear-gradient(0deg, rgba(228, 228, 228, 1) 0%, rgba(205, 205, 205, 1) 100%);
 }
+
 .search-icon {
     background-image: url('/img/pokeball.png');
     height: 50px;
@@ -455,12 +460,16 @@ header img {
 }
 
 
-.selected{
+.selected {
     background-color: rgba(0, 0, 0, 0.343);
 }
-.buttonpage, .anterior, .siguiente, .navAnterior,.navSiguiente{
+
+.buttonpage,
+.anterior,
+.siguiente,
+.navAnterior,
+.navSiguiente {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
